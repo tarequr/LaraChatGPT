@@ -20,9 +20,16 @@
             </div>
         </div>
 
-        <div class="row">
-
+        <div class="row p-3">
+            <div class="col-md-2">Laravel Question:</div>
+            <div class="col-md-7">
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-secondary">Reset Conversation</button>
+            </div>
         </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
