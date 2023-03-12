@@ -16,7 +16,7 @@
         <div class="container">
             @foreach ($messages as $message)
                 <div class="p-3">
-                    <div class="p-3 rounded text-light" @if ($message['role'] == 'assistant') style="background: rgb(43, 226, 171)" @else style="background: blueviolet" @endif>
+                    <div class="p-3 rounded text-light" @if ($message['role'] == 'assistant') style="background: rgb(43, 226, 171);" @else style="background: blueviolet" @endif>
                         @if ($message['role'] == 'assistant')
                             <h4>ChatGpt</h4>
                         @else
@@ -37,7 +37,7 @@
                         <input type="text" name="message" id="message" class="form-control">
                     </div>
                     <div class="col-md-1">
-                        <button class="btn btn-secondary">Reset</button>
+                        <a href="{{ route('submit.reset') }}" class="btn btn-secondary">Reset</a>
                     </div>
                 </div>
             </form>

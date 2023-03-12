@@ -12,8 +12,6 @@ class ChatController extends Controller
     public function index()
     {
         $messages = collect((session('messages', [])))->reject(fn ($message) => $message['role'] === 'system');
-        // $messages = collect(session('messages', []))->reject(fn ($message) => $message['role'] === 'system');
-// dd($messages);
         return view('index', compact('messages'));
     }
 
@@ -35,6 +33,12 @@ class ChatController extends Controller
 
         $request->session()->put('messages', $messages);
 
+        return redirect()->route('home');
+    }
+
+    public function reset(Request $request)
+    {
+        $request->session()->forget('messages');
         return redirect()->route('home');
     }
 }

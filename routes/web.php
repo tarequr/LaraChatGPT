@@ -22,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ChatController::class, 'index'])->name('home');
 Route::post('submit/message', [ChatController::class, 'store'])->name('submit.message');
+Route::get('reset/', [ChatController::class, 'reset'])->name('submit.reset');
