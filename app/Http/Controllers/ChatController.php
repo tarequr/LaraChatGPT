@@ -33,8 +33,8 @@ class ChatController extends Controller
 
         $messages[] = ['role' => 'assistant', 'content' => $response->choices[0]->message->content];
 
-        $request->session()->pull('messages', $messages);
+        $request->session()->put('messages', $messages);
 
-        return render('/');
+        return redirect()->route('home');
     }
 }

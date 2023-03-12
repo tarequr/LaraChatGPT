@@ -14,12 +14,19 @@
     </head>
     <body class="antialiased">
         <div class="container">
-            <div class="p-3">
-                <div class="p-3 rounded text-light" style="background: blueviolet">
-                    <h4>Laravel ChatGpt</h4>
-                    <p>Message</p>
+            @foreach ($messages as $message)
+                <div class="p-3">
+                    <div class="p-3 rounded text-light" @if ($message['role'] == 'assistant') style="background: rgb(43, 226, 171)" @else style="background: blueviolet" @endif>
+                        @if ($message['role'] == 'assistant')
+                            <h4>ChatGpt</h4>
+                        @else
+                            <h4>You</h4>
+                        @endif
+
+                        <p>{!! \Illuminate\Mail\Markdown::parse($message['content']) !!}</p>
+                    </div>
                 </div>
-            </div>
+            @endforeach
 
             <form action="{{ route('submit.message') }}" method="POST">
                 @csrf
