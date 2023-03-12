@@ -13,21 +13,27 @@
 
     </head>
     <body class="antialiased">
-        <div class="p-3">
-            <div class="p-3 rounded text-light" style="background: blueviolet">
-                <h4>Laravel ChatGpt</h4>
-                <p>Message</p>
+        <div class="container">
+            <div class="p-3">
+                <div class="p-3 rounded text-light" style="background: blueviolet">
+                    <h4>Laravel ChatGpt</h4>
+                    <p>Message</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row p-3">
-            <div class="col-md-2">Laravel Question:</div>
-            <div class="col-md-7">
-                <input type="text" name="" id="" class="form-control">
-            </div>
-            <div class="col-md-3">
-                <button class="btn btn-secondary">Reset Conversation</button>
-            </div>
+            <form action="{{ route('submit.message') }}" method="POST">
+                @csrf
+
+                <div class="row p-3">
+                    <div class="col-md-1">Question:</div>
+                    <div class="col-md-10">
+                        <input type="text" name="message" id="message" class="form-control">
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('index');
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('index');
 
-});
+// });
+
+Route::get('/', [ChatController::class, 'index'])->name('home');
+Route::post('submit/message', [ChatController::class, 'store'])->name('submit.message');
